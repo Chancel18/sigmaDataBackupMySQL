@@ -38,6 +38,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.pbRowInAllTable = new System.Windows.Forms.ProgressBar();
+            this.pbRowInCurTable = new System.Windows.Forms.ProgressBar();
+            this.pbTable = new System.Windows.Forms.ProgressBar();
+            this.lbTableCount = new System.Windows.Forms.Label();
+            this.lbRowInAllTable = new System.Windows.Forms.Label();
+            this.lbRowInCurTable = new System.Windows.Forms.Label();
+            this.lbCurrentTableName = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnStart = new System.Windows.Forms.Button();
@@ -48,7 +59,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TxtPath = new System.Windows.Forms.TextBox();
-            this.bindingShedule = new System.Windows.Forms.BindingSource(this.components);
             this.IsCheckedSsh = new System.Windows.Forms.CheckBox();
             this.BtnGetPath = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
@@ -58,7 +68,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.MTxtCPwd = new System.Windows.Forms.MaskedTextBox();
-            this.bindingDestination = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.TxtCUser = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -70,7 +79,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MTxtRPassword = new System.Windows.Forms.MaskedTextBox();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.TxtRUser = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -84,9 +92,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
             this.TxtFPort = new System.Windows.Forms.TextBox();
-            this.bindingHost = new System.Windows.Forms.BindingSource(this.components);
             this.TxtBoundPort = new System.Windows.Forms.TextBox();
-            this.bindingBounding = new System.Windows.Forms.BindingSource(this.components);
             this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.TxtFHost = new System.Windows.Forms.TextBox();
@@ -95,7 +101,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.TxtPort = new System.Windows.Forms.TextBox();
-            this.bindingSsh = new System.Windows.Forms.BindingSource(this.components);
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.TxtUserName = new System.Windows.Forms.TextBox();
@@ -103,6 +108,14 @@
             this.TxtHost = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.TxtBoxSize = new System.Windows.Forms.TextBox();
+            this.TxtBoxLastAccess = new System.Windows.Forms.TextBox();
+            this.TxtBoxDateWrite = new System.Windows.Forms.TextBox();
+            this.TxtBoxDateCreate = new System.Windows.Forms.TextBox();
+            this.TxtBoxExt = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.TxtBoxName = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -122,36 +135,36 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.TxtBoxName = new System.Windows.Forms.TextBox();
-            this.TxtBoxExt = new System.Windows.Forms.TextBox();
-            this.TxtBoxDateCreate = new System.Windows.Forms.TextBox();
-            this.TxtBoxSize = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.TxtBoxDateWrite = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.TxtBoxLastAccess = new System.Windows.Forms.TextBox();
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.lbSpeedNetwork = new System.Windows.Forms.Label();
+            this.bindingShedule = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingDestination = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingHost = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingBounding = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSsh = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGViewDbHistory)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGridViewLog)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -168,22 +181,125 @@
             this.tabControl1.Location = new System.Drawing.Point(5, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(637, 267);
+            this.tabControl1.Size = new System.Drawing.Size(637, 292);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPage1.Controls.Add(this.label34);
+            this.tabPage1.Controls.Add(this.label33);
+            this.tabPage1.Controls.Add(this.label32);
+            this.tabPage1.Controls.Add(this.label31);
+            this.tabPage1.Controls.Add(this.pbRowInAllTable);
+            this.tabPage1.Controls.Add(this.pbRowInCurTable);
+            this.tabPage1.Controls.Add(this.pbTable);
+            this.tabPage1.Controls.Add(this.lbTableCount);
+            this.tabPage1.Controls.Add(this.lbRowInAllTable);
+            this.tabPage1.Controls.Add(this.lbRowInCurTable);
+            this.tabPage1.Controls.Add(this.lbSpeedNetwork);
+            this.tabPage1.Controls.Add(this.lbCurrentTableName);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.ImageIndex = 3;
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(629, 236);
+            this.tabPage1.Size = new System.Drawing.Size(629, 261);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Service Manager";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label34
+            // 
+            this.label34.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label34.Location = new System.Drawing.Point(10, 204);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(611, 2);
+            this.label34.TabIndex = 8;
+            // 
+            // label33
+            // 
+            this.label33.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label33.Location = new System.Drawing.Point(10, 148);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(611, 2);
+            this.label33.TabIndex = 8;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(10, 210);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(224, 13);
+            this.label32.TabIndex = 7;
+            this.label32.Text = "Total des lignes de toute les tables contenue :";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(10, 154);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(158, 13);
+            this.label31.TabIndex = 7;
+            this.label31.Text = "Total des lignes table courante :";
+            // 
+            // pbRowInAllTable
+            // 
+            this.pbRowInAllTable.Location = new System.Drawing.Point(10, 226);
+            this.pbRowInAllTable.Name = "pbRowInAllTable";
+            this.pbRowInAllTable.Size = new System.Drawing.Size(611, 10);
+            this.pbRowInAllTable.TabIndex = 6;
+            // 
+            // pbRowInCurTable
+            // 
+            this.pbRowInCurTable.Location = new System.Drawing.Point(10, 170);
+            this.pbRowInCurTable.Name = "pbRowInCurTable";
+            this.pbRowInCurTable.Size = new System.Drawing.Size(611, 10);
+            this.pbRowInCurTable.TabIndex = 6;
+            // 
+            // pbTable
+            // 
+            this.pbTable.Location = new System.Drawing.Point(10, 115);
+            this.pbTable.Name = "pbTable";
+            this.pbTable.Size = new System.Drawing.Size(611, 10);
+            this.pbTable.TabIndex = 6;
+            // 
+            // lbTableCount
+            // 
+            this.lbTableCount.AutoSize = true;
+            this.lbTableCount.Location = new System.Drawing.Point(10, 129);
+            this.lbTableCount.Name = "lbTableCount";
+            this.lbTableCount.Size = new System.Drawing.Size(15, 13);
+            this.lbTableCount.TabIndex = 5;
+            this.lbTableCount.Text = "%";
+            // 
+            // lbRowInAllTable
+            // 
+            this.lbRowInAllTable.AutoSize = true;
+            this.lbRowInAllTable.Location = new System.Drawing.Point(10, 240);
+            this.lbRowInAllTable.Name = "lbRowInAllTable";
+            this.lbRowInAllTable.Size = new System.Drawing.Size(15, 13);
+            this.lbRowInAllTable.TabIndex = 5;
+            this.lbRowInAllTable.Text = "%";
+            // 
+            // lbRowInCurTable
+            // 
+            this.lbRowInCurTable.AutoSize = true;
+            this.lbRowInCurTable.Location = new System.Drawing.Point(10, 184);
+            this.lbRowInCurTable.Name = "lbRowInCurTable";
+            this.lbRowInCurTable.Size = new System.Drawing.Size(15, 13);
+            this.lbRowInCurTable.TabIndex = 5;
+            this.lbRowInCurTable.Text = "%";
+            // 
+            // lbCurrentTableName
+            // 
+            this.lbCurrentTableName.AutoSize = true;
+            this.lbCurrentTableName.Location = new System.Drawing.Point(10, 99);
+            this.lbCurrentTableName.Name = "lbCurrentTableName";
+            this.lbCurrentTableName.Size = new System.Drawing.Size(15, 13);
+            this.lbCurrentTableName.TabIndex = 5;
+            this.lbCurrentTableName.Text = "%";
             // 
             // panel2
             // 
@@ -253,7 +369,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(251, 5);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(370, 223);
+            this.dataGridView1.Size = new System.Drawing.Size(370, 89);
             this.dataGridView1.TabIndex = 3;
             // 
             // tabPage2
@@ -266,7 +382,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(629, 236);
+            this.tabPage2.Size = new System.Drawing.Size(629, 261);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Configuration";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -283,7 +399,7 @@
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Location = new System.Drawing.Point(7, 161);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(614, 68);
+            this.groupBox3.Size = new System.Drawing.Size(614, 92);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Interval d\'execution de la tâche";
@@ -295,10 +411,6 @@
             this.TxtPath.Name = "TxtPath";
             this.TxtPath.Size = new System.Drawing.Size(302, 20);
             this.TxtPath.TabIndex = 4;
-            // 
-            // bindingShedule
-            // 
-            this.bindingShedule.DataSource = typeof(Sigmasoft.Application.Domain.SheduleConfig);
             // 
             // IsCheckedSsh
             // 
@@ -395,10 +507,6 @@
             this.MTxtCPwd.PasswordChar = '*';
             this.MTxtCPwd.Size = new System.Drawing.Size(189, 20);
             this.MTxtCPwd.TabIndex = 4;
-            // 
-            // bindingDestination
-            // 
-            this.bindingDestination.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
             // 
             // label6
             // 
@@ -506,10 +614,6 @@
             this.MTxtRPassword.Size = new System.Drawing.Size(189, 20);
             this.MTxtRPassword.TabIndex = 4;
             // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -596,7 +700,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(629, 236);
+            this.tabPage3.Size = new System.Drawing.Size(629, 261);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Tunnel SSH";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -636,10 +740,6 @@
             this.TxtFPort.Size = new System.Drawing.Size(86, 20);
             this.TxtFPort.TabIndex = 3;
             // 
-            // bindingHost
-            // 
-            this.bindingHost.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
-            // 
             // TxtBoundPort
             // 
             this.TxtBoundPort.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingBounding, "Port", true));
@@ -647,10 +747,6 @@
             this.TxtBoundPort.Name = "TxtBoundPort";
             this.TxtBoundPort.Size = new System.Drawing.Size(86, 20);
             this.TxtBoundPort.TabIndex = 3;
-            // 
-            // bindingBounding
-            // 
-            this.bindingBounding.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
             // 
             // label21
             // 
@@ -728,10 +824,6 @@
             this.TxtPort.Size = new System.Drawing.Size(66, 20);
             this.TxtPort.TabIndex = 5;
             // 
-            // bindingSsh
-            // 
-            this.bindingSsh.DataSource = typeof(Sigmasoft.Application.Domain.SSHConfig);
-            // 
             // TxtPassword
             // 
             this.TxtPassword.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSsh, "Pwd", true));
@@ -807,9 +899,75 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 27);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(629, 236);
+            this.tabPage5.Size = new System.Drawing.Size(629, 261);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Historique";
+            // 
+            // TxtBoxSize
+            // 
+            this.TxtBoxSize.Location = new System.Drawing.Point(445, 155);
+            this.TxtBoxSize.Name = "TxtBoxSize";
+            this.TxtBoxSize.ReadOnly = true;
+            this.TxtBoxSize.Size = new System.Drawing.Size(178, 20);
+            this.TxtBoxSize.TabIndex = 5;
+            // 
+            // TxtBoxLastAccess
+            // 
+            this.TxtBoxLastAccess.Location = new System.Drawing.Point(445, 133);
+            this.TxtBoxLastAccess.Name = "TxtBoxLastAccess";
+            this.TxtBoxLastAccess.ReadOnly = true;
+            this.TxtBoxLastAccess.Size = new System.Drawing.Size(178, 20);
+            this.TxtBoxLastAccess.TabIndex = 5;
+            // 
+            // TxtBoxDateWrite
+            // 
+            this.TxtBoxDateWrite.Location = new System.Drawing.Point(445, 111);
+            this.TxtBoxDateWrite.Name = "TxtBoxDateWrite";
+            this.TxtBoxDateWrite.ReadOnly = true;
+            this.TxtBoxDateWrite.Size = new System.Drawing.Size(178, 20);
+            this.TxtBoxDateWrite.TabIndex = 5;
+            // 
+            // TxtBoxDateCreate
+            // 
+            this.TxtBoxDateCreate.Location = new System.Drawing.Point(445, 89);
+            this.TxtBoxDateCreate.Name = "TxtBoxDateCreate";
+            this.TxtBoxDateCreate.ReadOnly = true;
+            this.TxtBoxDateCreate.Size = new System.Drawing.Size(178, 20);
+            this.TxtBoxDateCreate.TabIndex = 5;
+            // 
+            // TxtBoxExt
+            // 
+            this.TxtBoxExt.Location = new System.Drawing.Point(445, 67);
+            this.TxtBoxExt.Name = "TxtBoxExt";
+            this.TxtBoxExt.ReadOnly = true;
+            this.TxtBoxExt.Size = new System.Drawing.Size(178, 20);
+            this.TxtBoxExt.TabIndex = 5;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(349, 137);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(93, 13);
+            this.label30.TabIndex = 4;
+            this.label30.Text = "Dernier accès le  :";
+            // 
+            // TxtBoxName
+            // 
+            this.TxtBoxName.Location = new System.Drawing.Point(445, 45);
+            this.TxtBoxName.Name = "TxtBoxName";
+            this.TxtBoxName.ReadOnly = true;
+            this.TxtBoxName.Size = new System.Drawing.Size(178, 20);
+            this.TxtBoxName.TabIndex = 5;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(349, 115);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(64, 13);
+            this.label29.TabIndex = 4;
+            this.label29.Text = "Modifier le  :";
             // 
             // label28
             // 
@@ -872,11 +1030,13 @@
             this.DGViewDbHistory.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.DGViewDbHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGViewDbHistory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.DGViewDbHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
             this.DGViewDbHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGViewDbHistory.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DGViewDbHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.DGViewDbHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DGViewDbHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -903,7 +1063,7 @@
             this.DGViewDbHistory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.DGViewDbHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGViewDbHistory.ShowEditingIcon = false;
-            this.DGViewDbHistory.Size = new System.Drawing.Size(340, 230);
+            this.DGViewDbHistory.Size = new System.Drawing.Size(340, 255);
             this.DGViewDbHistory.TabIndex = 1;
             this.DGViewDbHistory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGViewDbHistory_CellClick);
             // 
@@ -914,7 +1074,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 27);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(629, 236);
+            this.tabPage4.Size = new System.Drawing.Size(629, 261);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Journal";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -958,7 +1118,7 @@
             this.DGridViewLog.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.DGridViewLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGridViewLog.ShowEditingIcon = false;
-            this.DGridViewLog.Size = new System.Drawing.Size(623, 230);
+            this.DGridViewLog.Size = new System.Drawing.Size(623, 255);
             this.DGridViewLog.TabIndex = 0;
             // 
             // imageList1
@@ -980,7 +1140,7 @@
             this.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCancel.ImageIndex = 3;
             this.BtnCancel.ImageList = this.imageList3;
-            this.BtnCancel.Location = new System.Drawing.Point(534, 276);
+            this.BtnCancel.Location = new System.Drawing.Point(534, 302);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(104, 28);
             this.BtnCancel.TabIndex = 2;
@@ -1003,7 +1163,7 @@
             this.BtnValid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnValid.ImageIndex = 1;
             this.BtnValid.ImageList = this.imageList3;
-            this.BtnValid.Location = new System.Drawing.Point(109, 276);
+            this.BtnValid.Location = new System.Drawing.Point(109, 302);
             this.BtnValid.Name = "BtnValid";
             this.BtnValid.Size = new System.Drawing.Size(104, 28);
             this.BtnValid.TabIndex = 1;
@@ -1017,7 +1177,7 @@
             this.BtnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnNew.ImageIndex = 0;
             this.BtnNew.ImageList = this.imageList3;
-            this.BtnNew.Location = new System.Drawing.Point(5, 276);
+            this.BtnNew.Location = new System.Drawing.Point(5, 302);
             this.BtnNew.Name = "BtnNew";
             this.BtnNew.Size = new System.Drawing.Size(104, 28);
             this.BtnNew.TabIndex = 0;
@@ -1038,7 +1198,7 @@
             this.panel1.Controls.Add(this.BtnValid);
             this.panel1.Location = new System.Drawing.Point(5, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(650, 312);
+            this.panel1.Size = new System.Drawing.Size(650, 337);
             this.panel1.TabIndex = 1;
             // 
             // BtnEdit
@@ -1047,7 +1207,7 @@
             this.BtnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnEdit.ImageIndex = 2;
             this.BtnEdit.ImageList = this.imageList3;
-            this.BtnEdit.Location = new System.Drawing.Point(213, 276);
+            this.BtnEdit.Location = new System.Drawing.Point(213, 302);
             this.BtnEdit.Name = "BtnEdit";
             this.BtnEdit.Size = new System.Drawing.Size(104, 28);
             this.BtnEdit.TabIndex = 1;
@@ -1065,78 +1225,45 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
-            // TxtBoxName
+            // lbSpeedNetwork
             // 
-            this.TxtBoxName.Location = new System.Drawing.Point(445, 45);
-            this.TxtBoxName.Name = "TxtBoxName";
-            this.TxtBoxName.ReadOnly = true;
-            this.TxtBoxName.Size = new System.Drawing.Size(178, 20);
-            this.TxtBoxName.TabIndex = 5;
+            this.lbSpeedNetwork.AutoSize = true;
+            this.lbSpeedNetwork.Location = new System.Drawing.Point(559, 99);
+            this.lbSpeedNetwork.Name = "lbSpeedNetwork";
+            this.lbSpeedNetwork.Size = new System.Drawing.Size(15, 13);
+            this.lbSpeedNetwork.TabIndex = 5;
+            this.lbSpeedNetwork.Text = "%";
             // 
-            // TxtBoxExt
+            // bindingShedule
             // 
-            this.TxtBoxExt.Location = new System.Drawing.Point(445, 67);
-            this.TxtBoxExt.Name = "TxtBoxExt";
-            this.TxtBoxExt.ReadOnly = true;
-            this.TxtBoxExt.Size = new System.Drawing.Size(178, 20);
-            this.TxtBoxExt.TabIndex = 5;
+            this.bindingShedule.DataSource = typeof(Sigmasoft.Application.Domain.SheduleConfig);
             // 
-            // TxtBoxDateCreate
+            // bindingDestination
             // 
-            this.TxtBoxDateCreate.Location = new System.Drawing.Point(445, 89);
-            this.TxtBoxDateCreate.Name = "TxtBoxDateCreate";
-            this.TxtBoxDateCreate.ReadOnly = true;
-            this.TxtBoxDateCreate.Size = new System.Drawing.Size(178, 20);
-            this.TxtBoxDateCreate.TabIndex = 5;
+            this.bindingDestination.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
             // 
-            // TxtBoxSize
+            // bindingSource
             // 
-            this.TxtBoxSize.Location = new System.Drawing.Point(445, 155);
-            this.TxtBoxSize.Name = "TxtBoxSize";
-            this.TxtBoxSize.ReadOnly = true;
-            this.TxtBoxSize.Size = new System.Drawing.Size(178, 20);
-            this.TxtBoxSize.TabIndex = 5;
+            this.bindingSource.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
             // 
-            // label29
+            // bindingHost
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(349, 115);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(64, 13);
-            this.label29.TabIndex = 4;
-            this.label29.Text = "Modifier le  :";
+            this.bindingHost.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
             // 
-            // TxtBoxDateWrite
+            // bindingBounding
             // 
-            this.TxtBoxDateWrite.Location = new System.Drawing.Point(445, 111);
-            this.TxtBoxDateWrite.Name = "TxtBoxDateWrite";
-            this.TxtBoxDateWrite.ReadOnly = true;
-            this.TxtBoxDateWrite.Size = new System.Drawing.Size(178, 20);
-            this.TxtBoxDateWrite.TabIndex = 5;
+            this.bindingBounding.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
             // 
-            // label30
+            // bindingSsh
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(349, 137);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(93, 13);
-            this.label30.TabIndex = 4;
-            this.label30.Text = "Dernier accès le  :";
-            // 
-            // TxtBoxLastAccess
-            // 
-            this.TxtBoxLastAccess.Location = new System.Drawing.Point(445, 133);
-            this.TxtBoxLastAccess.Name = "TxtBoxLastAccess";
-            this.TxtBoxLastAccess.ReadOnly = true;
-            this.TxtBoxLastAccess.Size = new System.Drawing.Size(178, 20);
-            this.TxtBoxLastAccess.TabIndex = 5;
+            this.bindingSsh.DataSource = typeof(Sigmasoft.Application.Domain.SSHConfig);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnCancel;
-            this.ClientSize = new System.Drawing.Size(660, 321);
+            this.ClientSize = new System.Drawing.Size(660, 347);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1148,33 +1275,34 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGViewDbHistory)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGridViewLog)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1275,6 +1403,19 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox TxtBoxLastAccess;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label lbCurrentTableName;
+        private System.Windows.Forms.ProgressBar pbTable;
+        private System.Windows.Forms.ProgressBar pbRowInCurTable;
+        private System.Windows.Forms.ProgressBar pbRowInAllTable;
+        private System.Windows.Forms.Label lbTableCount;
+        private System.Windows.Forms.Label lbRowInCurTable;
+        private System.Windows.Forms.Label lbRowInAllTable;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.Label lbSpeedNetwork;
     }
 }
 
