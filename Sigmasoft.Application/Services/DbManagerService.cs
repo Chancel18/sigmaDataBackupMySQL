@@ -10,90 +10,120 @@ namespace Sigmasoft.Application.Services
 {
     public class DbManagerService
     {
-        private DbConfig _source;
-        private DbConfig _destination;
-        private SheduleConfig _shedule;
+        public DbConfig Source { get; set; }
+        public DbConfig Destination { get; set; }
+        public SheduleConfig Shedule { get; set; }
         //Provider connection
         private MySqlConnectionStringBuilder connSrc;
         private MySqlConnectionStringBuilder connDest;
         //Check DB
         private MySqlConnectionStringBuilder connCreateDb;
+        //Connection DB
+        private MySqlConnection _conn;
         // file
         private string backupFile;
 
+        private FileStream fs;
+
+        public MySqlBackup DbBackup { get; set; } = new MySqlBackup();
+
+        public DbManagerService() {}
+
+        public DbManagerService(MySqlBackup dbBackup)
+        {
+            this.DbBackup = dbBackup;
+        }
+
         public DbManagerService(DbConfig src, DbConfig dest, SheduleConfig shedule)
         {
-            this._source = src;
-            this._destination = dest;
-            this._shedule = shedule;
+            this.Source = src;
+            this.Destination = dest;
+            this.Shedule = shedule;
 
+            this.InitializeConnection();
+        }
+
+        public void InitializeConnection()
+        {
             connSrc = new MySqlConnectionStringBuilder
             {
-                Server = this._source.Source,
-                Port = this._source.Port,
-                UserID = this._source.User,
-                Password = this._source.Password,
-                Database = this._source.Database,
-                ConnectionTimeout = 400000,
+                Server = this.Source.Source,
+                Port = this.Source.Port,
+                UserID = this.Source.User,
+                Password = this.Source.Password,
+                Database = this.Source.Database,
+                ConnectionTimeout = 999999,
                 ConvertZeroDateTime = true
             };
 
             connDest = new MySqlConnectionStringBuilder
             {
-                Server = this._destination.Source,
-                Port = this._destination.Port,
-                UserID = this._destination.User,
-                Password = this._destination.Password,
-                Database = this._destination.Database,
-                ConnectionTimeout = 400000,
+                Server = this.Destination.Source,
+                Port = this.Destination.Port,
+                UserID = this.Destination.User,
+                Password = this.Destination.Password,
+                Database = this.Destination.Database,
+                ConnectionTimeout = 999999,
                 ConvertZeroDateTime = true
             };
 
             connCreateDb = new MySqlConnectionStringBuilder
             {
-                Server = this._destination.Source,
-                UserID = this._destination.User,
-                Password = this._destination.Password,
-                ConnectionTimeout = 400000,
+                Server = this.Destination.Source,
+                UserID = this.Destination.User,
+                Password = this.Destination.Password,
+                ConnectionTimeout = 999999,
                 ConvertZeroDateTime = true,
             };
+        }
+
+        public void CloseConnection()
+        {
+            if (this._conn != null)
+            {
+                this._conn.Close();
+                this._conn.Dispose();
+                this.DbBackup.StopAllProcess();
+            }
         }
 
         public bool Backup()
         {
             try
             {
-                this.backupFile = $"{this._shedule.FilePath}\\backup_{DateTime.Now.ToShortDateString().Replace('/', '_')}_{DateTime.Now.ToShortTimeString().Replace(':', '_')}_{DateTime.Now.Millisecond}.sql";
+                this.backupFile = $"{this.Shedule.FilePath}\\dump{DateTime.Now.Date.ToShortDateString().Replace('/', 'd')}_{DateTime.Now.ToShortTimeString().Replace(':', 'h')}m{DateTime.Now.Millisecond}.sql";
 
-                using (var conn = new MySqlConnection(connSrc.ConnectionString))
-                {
-                    using (MySqlCommand cmd = new MySqlCommand())
-                    {
+                fs = new FileStream(this.backupFile, FileMode.Create);
 
-                        using (MySqlBackup mb = new MySqlBackup(cmd))
-                        {
-                            conn.Open();
+                this._conn = new MySqlConnection(connSrc.ConnectionString);
 
-                            this.SetTimeOut(99999, conn);
+                var cmd = new MySqlCommand();
 
-                            cmd.Connection = conn;
-                            
-                            var fs = new FileStream(this.backupFile, FileMode.Create);
+                this._conn.Open();
 
-                            mb.ExportToStream(fs);
+                this.SetTimeOut(999999, this._conn);
 
-                            fs.Close();
+                cmd.Connection = this._conn;
 
-                            conn.Close();
+                cmd.CommandTimeout = 999999;
 
-                            return true;
-                        }
-                    }
-                }
+                DbBackup.Command = cmd;
+
+                DbBackup.ExportInfo.ResetAutoIncrement = true;
+
+                DbBackup.ExportToStream(fs);
+
+                fs.Close();
+
+                return true;
             }
             catch (Exception e)
             {
                 Log.WriteToFile(e.Message);
+
+                fs.Close();
+
+                File.Delete(fs.Name);
 
                 return false;
             }
@@ -121,11 +151,17 @@ namespace Sigmasoft.Application.Services
                 {
                     using (MySqlCommand cmd = new MySqlCommand())
                     {
-                        using (MySqlBackup mb = new MySqlBackup(cmd))
+                        using (DbBackup = new MySqlBackup(cmd))
                         {
                             cmd.Connection = conn;
                             conn.Open();
-                            mb.ImportFromFile(this.backupFile);
+
+                            fs = new FileStream(this.backupFile, FileMode.Open);
+
+                            DbBackup.ImportFromStream(fs);
+
+                            fs.Close();
+
                             conn.Close();
                         }
                     }
@@ -133,6 +169,8 @@ namespace Sigmasoft.Application.Services
             }
             catch (Exception e)
             {
+                fs.Close();
+
                 Log.WriteToFile(e.Message);
 
             }

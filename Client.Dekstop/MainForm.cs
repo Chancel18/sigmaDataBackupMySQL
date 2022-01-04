@@ -5,10 +5,13 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using Microsoft.Win32.TaskScheduler;
+using MySql.Data.MySqlClient;
 using Sigmasoft.Application.Domain;
 using Sigmasoft.Application.Helper;
 using Sigmasoft.Application.Services;
@@ -37,6 +40,14 @@ namespace Client.Dekstop
         //Log file
         private const string FILE_LOG = "\\logs\\file.log";
 
+        string _currentTableName = "";
+        int _totalRowsInCurrentTable = 0;
+        int _totalRowsInAllTables = 0;
+        int _currentRowIndexInCurrentTable = 0;
+        int _currentRowIndexInAllTable = 0;
+        int _totalTables = 0;
+        int _currentTableIndex = 0;
+
         public MainForm()
         {
             InitializeComponent();
@@ -59,6 +70,27 @@ namespace Client.Dekstop
             this.bindingSsh.DataSource = sshConfig;
             this.bindingHost.DataSource = sshLocalServer;
             this.bindingBounding.DataSource = sshLocalServerBounding;
+
+            //Service DB Manager
+            MySqlBackup mb = new MySqlBackup();
+            this.dbManager= new DbManagerService();
+
+            this.dbManager.DbBackup.ExportProgressChanged += ExportProgressChange;
+
+            timer1.Interval = 50;
+
+        }
+
+        private void ExportProgressChange(object sender, ExportProgressArgs e)
+        {
+            _currentRowIndexInAllTable = (int)e.CurrentRowIndexInAllTables;
+            _currentRowIndexInCurrentTable = (int)e.CurrentRowIndexInCurrentTable;
+            _currentTableIndex = e.CurrentTableIndex;
+            _currentTableName = e.CurrentTableName;
+            _totalRowsInAllTables = (int)e.TotalRowsInAllTables;
+            _totalRowsInCurrentTable = (int)e.TotalRowsInCurrentTable;
+            _totalTables = e.TotalTables;
+            //LblReportProgress.Text = $"{e.CurrentTableIndex}";
         }
 
         private void BtnValid_Click(object sender, EventArgs e)
@@ -188,6 +220,8 @@ namespace Client.Dekstop
 
             //Load log file
             ReadFile(FILE_LOG);
+
+            BtnStop.Enabled = false;
         }
 
         protected override void OnLoad(EventArgs e)
@@ -346,12 +380,27 @@ namespace Client.Dekstop
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            
-            this.TxtStatus.BackColor = Color.Chartreuse;
-
-            this.TxtStatus.Text = "Starting ...";
+            _currentTableName = "";
+            _totalRowsInCurrentTable = 0;
+            _totalRowsInAllTables = 0;
+            _currentRowIndexInCurrentTable = 0;
+            _currentRowIndexInAllTable = 0;
+            _totalTables = 0;
+            _currentTableIndex = 0;
 
             this.timer1.Start();
+
+            this.TxtStatus.BackColor = Color.Chartreuse;
+            this.TxtStatus.ForeColor = Color.Black;
+
+            this.TxtStatus.Text = "En cours de traitement".ToUpper();
+
+            this.dbManager.DbBackup.ExportInfo.IntervalForProgressReport = 50;
+
+            if (backgroundWorker1.IsBusy != true)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
 
             BtnStop.Enabled = true;
             BtnStart.Enabled = false;
@@ -361,31 +410,78 @@ namespace Client.Dekstop
         {
 
             this.TxtStatus.BackColor = Color.Red;
-
-            this.TxtStatus.Text = "Stop ...";
+            this.TxtStatus.ForeColor = Color.White;
+            this.TxtStatus.Text = "Stop ...".ToUpper();
 
             BtnStop.Enabled = false;
             BtnStart.Enabled = true;
 
             this.timer1.Stop();
 
+            this.dbManager.CloseConnection();
+
             backgroundWorker1.CancelAsync();
+
+            backgroundWorker1.Dispose();
+        }
+
+        private double Speed(string url)
+        {
+            WebClient wbClient = new WebClient();
+            DateTime dt1 = DateTime.Now;
+            byte[] data = wbClient.DownloadData(url);
+            DateTime dt2 = DateTime.Now;
+
+            return (data.Length * 8) / (dt1 - dt2).TotalSeconds;
         }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Interval = (int)this.DTPicker.Value.TimeOfDay.TotalMilliseconds;
+            pbTable.Maximum = _totalTables;
+            if (_currentTableIndex <= pbTable.Maximum)
+                pbTable.Value = _currentTableIndex;
 
-            if (backgroundWorker1.IsBusy != true)
-            {
-                backgroundWorker1.RunWorkerAsync();
-            }
+            pbRowInCurTable.Maximum = _totalRowsInCurrentTable;
+            if (_currentRowIndexInCurrentTable <= pbRowInCurTable.Maximum)
+                pbRowInCurTable.Value = _currentRowIndexInCurrentTable;
+
+            pbRowInAllTable.Maximum = _totalRowsInAllTables;
+            if (_currentRowIndexInAllTable <= pbRowInAllTable.Maximum)
+                pbRowInAllTable.Value = _currentRowIndexInAllTable;
+
+            lbCurrentTableName.Text = "Table en cours de traitement = [" + _currentTableName.ToUpper()+"]";
+            lbRowInCurTable.Text = pbRowInCurTable.Value + " sur " + pbRowInCurTable.Maximum;
+            //TxtStatus.Text = " Veuillez Patienter (" + pbRowInCurTable.Value + " / " + pbRowInCurTable.Maximum + ") ...";
+            lbRowInAllTable.Text = pbRowInAllTable.Value + " sur " + pbRowInAllTable.Maximum;
+            lbTableCount.Text = _currentTableIndex + " sur " + _totalTables;
+
+            //lbSpeedNetwork.Text = $"{(this.Speed("https://www.google.com/") /1024 * 1024)} Mb/s";
+
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            
+            if (e.Cancelled == true)
+            {
+                BtnStart.Enabled = true;
+                BtnStop.Enabled = false;
+                TxtStatus.Text = "Opération Terminer ...".ToUpper();
+                MessageBox.Show("Opération términer avec succès !", "Information", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                this.dbManager.CloseConnection();
+            }
+            else
+            {
+                BtnStart.Enabled = true;
+                BtnStop.Enabled = false;
+                TxtStatus.Text = "Erreur ...".ToUpper();
+                TxtStatus.ForeColor = Color.White;
+                TxtStatus.BackColor = Color.Red;
+                MessageBox.Show("Une erreur est survenue au moment du traitement.", "ERREUR", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                this.dbManager.CloseConnection();
+            }
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -394,7 +490,11 @@ namespace Client.Dekstop
             var dest = (DbConfig)this.bindingDestination.DataSource;
             var sheduler = (SheduleConfig)this.bindingShedule.DataSource;
 
-            this.dbManager = new DbManagerService(src, dest, sheduler);
+            this.dbManager.Source = src;
+            this.dbManager.Destination = dest;
+            this.dbManager.Shedule = sheduler;
+
+            this.dbManager.InitializeConnection();
 
             if (sheduler.IsEnableSSH == true)
             {
@@ -431,16 +531,21 @@ namespace Client.Dekstop
                             sshManager.Disconnect();
                         }
 
-                        MessageBox.Show("Opération términer avec succès !", "Information", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
+                        e.Cancel = true;
+                        //Read history database
+                        this.ReadFileInDirectory();
+                        //Load log file
+                        this.ReadFile(FILE_LOG);
                     }
                     else
                     {
-                        MessageBox.Show("Une erreur est survenue au moment du traitement.", "ERREUR", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
 
+                        //e.Result = false;
+                        e.Cancel = false;
+                        //Read history database
+                        this.ReadFileInDirectory();
                         //Load log file
-                        ReadFile(FILE_LOG);
+                        this.ReadFile(FILE_LOG);
                     }
                 }
                 else
@@ -472,16 +577,20 @@ namespace Client.Dekstop
                         this.dbManager.Restore();
                     }
 
-                    MessageBox.Show("Opération términer avec succès !", "Information", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    e.Cancel = true;
+                    //Read history database
+                    this.ReadFileInDirectory();
+                    //Load log file
+                    this.ReadFile(FILE_LOG);
                 }
                 else
                 {
-                    MessageBox.Show("Une erreur est survenue au moment du traitement.", "ERREUR", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
+                    //e.Result = false;
+                    e.Cancel = false;
+                    //Read history database
+                    this.ReadFileInDirectory();
                     //Load log file
-                    ReadFile(FILE_LOG);
+                    this.ReadFile(FILE_LOG);
                 }
             }
         }
@@ -497,19 +606,34 @@ namespace Client.Dekstop
 
         private void DGViewDbHistory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var obj = DGViewDbHistory.Rows[e.RowIndex].DataBoundItem;
+            try
+            {
+                var obj = DGViewDbHistory.Rows[e.RowIndex].DataBoundItem;
 
-            Type type = obj.GetType();
+                if (obj != null)
+                {
+                    Type type = obj.GetType();
 
-            FileInfo fileInfo = new FileInfo((string)type.GetProperty("Fichier").GetValue(obj, null));
+                    FileInfo fileInfo = new FileInfo((string)type.GetProperty("Fichier").GetValue(obj, null));
 
-            TxtBoxName.Text = $"{fileInfo.Name}";
-            TxtBoxExt.Text = $"{fileInfo.Extension.ToUpper()}";
-            TxtBoxDateCreate.Text = $"{fileInfo.CreationTime}";
-            TxtBoxDateWrite.Text = $"{fileInfo.LastWriteTime}";
-            TxtBoxLastAccess.Text = $"{fileInfo.LastAccessTime}";
-            TxtBoxSize.Text =string.Format(CultureInfo.GetCultureInfo("cg-FR"), "{0:# ##0.00} Ko", Math.Round((double)fileInfo.Length / 1024, MidpointRounding.AwayFromZero));
-            
+                    TxtBoxName.Text = $"{fileInfo.Name}";
+                    toolTip1.ToolTipTitle = fileInfo.Name;
+                    toolTip1.IsBalloon = true;
+                    toolTip1.AutoPopDelay = 5000;
+                    toolTip1.ToolTipIcon = ToolTipIcon.Info;
+                    toolTip1.Show(fileInfo.Name, this);
+                    //TxtBoxName.Controls.Add(toolTip1.);
+                    TxtBoxExt.Text = $"{fileInfo.Extension.ToUpper()}";
+                    TxtBoxDateCreate.Text = $"{fileInfo.CreationTime}";
+                    TxtBoxDateWrite.Text = $"{fileInfo.LastWriteTime}";
+                    TxtBoxLastAccess.Text = $"{fileInfo.LastAccessTime}";
+                    TxtBoxSize.Text = string.Format(CultureInfo.GetCultureInfo("cg-FR"), "{0:# ##0.00} Ko", Math.Round((double)fileInfo.Length / 1024, MidpointRounding.AwayFromZero));
+                }
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
     }
 }
