@@ -342,8 +342,10 @@ namespace Client.Dekstop
 
             if (!string.IsNullOrEmpty(fBrowserDialog.SelectedPath))
             {
+                var sheduler = (SheduleConfig)this.bindingShedule.DataSource;
+                sheduler.FilePath = fBrowserDialog.SelectedPath;
+                this.bindingShedule.DataSource = sheduler;
                 TxtPath.Text = fBrowserDialog.SelectedPath;
-                toolTip1.ToolTipTitle = "Information";
             }
 
         }

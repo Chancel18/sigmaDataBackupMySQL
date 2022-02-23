@@ -77,80 +77,93 @@ namespace Client.Console
 
                         Thread.Sleep(3000);
 
-                        if (dbManager.Backup() == true)
+                        bool backup = false;
+
+                        int i = 0;
+
+                        while (backup == false)
                         {
-                            System.Console.WriteLine("- Vérification de la base de donnée ** (local) **");
+                            backup = dbManager.Backup();
 
-                            if (dbManager.CheckDatabase(dest.Database) == false)
+                            if (backup == true)
                             {
-                                Thread.Sleep(3000);
+                                System.Console.WriteLine("- Vérification de la base de donnée ** (local) **");
 
-                                System.Console.WriteLine("- Création de la base de donnée ** (local) **");
+                                if (dbManager.CheckDatabase(dest.Database) == false)
+                                {
+                                    Thread.Sleep(3000);
 
-                                dbManager.CreateDatabase(dest.Database);
+                                    System.Console.WriteLine("- Création de la base de donnée ** (local) **");
 
-                                Thread.Sleep(3000);
+                                    dbManager.CreateDatabase(dest.Database);
 
-                                System.Console.WriteLine("- Base de donnée ** (local) ** créer avec succès.");
+                                    Thread.Sleep(3000);
 
-                                Thread.Sleep(3000);
+                                    System.Console.WriteLine("- Base de donnée ** (local) ** créer avec succès.");
 
-                                System.Console.WriteLine("- Réstoration de la base de donnée ** (local) **");
+                                    Thread.Sleep(3000);
 
-                                dbManager.Restore();
+                                    System.Console.WriteLine("- Réstoration de la base de donnée ** (local) **");
 
-                                Thread.Sleep(3000);
+                                    dbManager.Restore();
 
-                                System.Console.WriteLine("- Réstoration de la base de donnée ** (local) ** éffectuer avec succès.");
+                                    Thread.Sleep(3000);
+
+                                    System.Console.WriteLine("- Réstoration de la base de donnée ** (local) ** éffectuer avec succès.");
+
+                                }
+                                else
+                                {
+                                    System.Console.WriteLine("- Suppression de la base de donnée ** (local) **");
+
+                                    Thread.Sleep(3000);
+
+                                    dbManager.RemoveDatabase(dest.Database);
+
+                                    Thread.Sleep(3000);
+
+                                    System.Console.WriteLine("- Suppression de la base de donnée ** (local) ** éffectuer avec succès.");
+
+                                    Thread.Sleep(3000);
+
+                                    System.Console.WriteLine("- Création de la base de donnée ** (local) **");
+
+                                    dbManager.CreateDatabase(dest.Database);
+
+                                    Thread.Sleep(3000);
+
+                                    System.Console.WriteLine("- Création de la base de donnée ** (local) ** éffectuer avec succès.");
+
+                                    dbManager.Restore();
+
+                                    Thread.Sleep(3000);
+
+                                    System.Console.WriteLine("- Réstoration de la base de donnée ** (local) ** éffectuer avec succès.");
+
+
+                                }
+
+                                if (sshManager.IsConnected() == true)
+                                {
+                                    sshManager.Disconnect();
+                                }
+
+                                System.Console.WriteLine("Opération términer avec succès !");
 
                                 System.Console.ReadLine();
                             }
                             else
                             {
-                                System.Console.WriteLine("- Suppression de la base de donnée ** (local) **");
+                                i++;
+
+                                System.Console.WriteLine("Une erreur est survenue au moment du traitement.");
 
                                 Thread.Sleep(3000);
 
-                                dbManager.RemoveDatabase(dest.Database);
+                                System.Console.WriteLine($"({i}) - Tentative de recupèration des données.");
 
-                                Thread.Sleep(3000);
-
-                                System.Console.WriteLine("- Suppression de la base de donnée ** (local) ** éffectuer avec succès.");
-
-                                Thread.Sleep(3000);
-
-                                System.Console.WriteLine("- Création de la base de donnée ** (local) **");
-
-                                dbManager.CreateDatabase(dest.Database);
-
-                                Thread.Sleep(3000);
-
-                                System.Console.WriteLine("- Création de la base de donnée ** (local) ** éffectuer avec succès.");
-
-                                dbManager.Restore();
-
-                                Thread.Sleep(3000);
-
-                                System.Console.WriteLine("- Réstoration de la base de donnée ** (local) ** éffectuer avec succès.");
-
-                                System.Console.ReadLine();
-
+                                backup = false;
                             }
-
-                            if (sshManager.IsConnected() == true)
-                            {
-                                sshManager.Disconnect();
-                            }
-
-                            System.Console.WriteLine("Opération términer avec succès !");
-
-                            System.Console.ReadLine();
-                        }
-                        else
-                        {
-                            System.Console.WriteLine("Une erreur est survenue au moment du traitement.");
-
-                            System.Console.ReadLine();
                         }
                     }
                     else

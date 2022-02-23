@@ -48,6 +48,7 @@
             this.lbTableCount = new System.Windows.Forms.Label();
             this.lbRowInAllTable = new System.Windows.Forms.Label();
             this.lbRowInCurTable = new System.Windows.Forms.Label();
+            this.lbSpeedNetwork = new System.Windows.Forms.Label();
             this.lbCurrentTableName = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,6 +60,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TxtPath = new System.Windows.Forms.TextBox();
+            this.bindingShedule = new System.Windows.Forms.BindingSource(this.components);
             this.IsCheckedSsh = new System.Windows.Forms.CheckBox();
             this.BtnGetPath = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
@@ -68,6 +70,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.MTxtCPwd = new System.Windows.Forms.MaskedTextBox();
+            this.bindingDestination = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.TxtCUser = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -79,6 +82,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MTxtRPassword = new System.Windows.Forms.MaskedTextBox();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.TxtRUser = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -92,7 +96,9 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
             this.TxtFPort = new System.Windows.Forms.TextBox();
+            this.bindingHost = new System.Windows.Forms.BindingSource(this.components);
             this.TxtBoundPort = new System.Windows.Forms.TextBox();
+            this.bindingBounding = new System.Windows.Forms.BindingSource(this.components);
             this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.TxtFHost = new System.Windows.Forms.TextBox();
@@ -101,6 +107,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.TxtPort = new System.Windows.Forms.TextBox();
+            this.bindingSsh = new System.Windows.Forms.BindingSource(this.components);
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.TxtUserName = new System.Windows.Forms.TextBox();
@@ -136,35 +143,28 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.lbSpeedNetwork = new System.Windows.Forms.Label();
-            this.bindingShedule = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingDestination = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingHost = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingBounding = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSsh = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGViewDbHistory)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGridViewLog)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -292,6 +292,15 @@
             this.lbRowInCurTable.TabIndex = 5;
             this.lbRowInCurTable.Text = "%";
             // 
+            // lbSpeedNetwork
+            // 
+            this.lbSpeedNetwork.AutoSize = true;
+            this.lbSpeedNetwork.Location = new System.Drawing.Point(559, 99);
+            this.lbSpeedNetwork.Name = "lbSpeedNetwork";
+            this.lbSpeedNetwork.Size = new System.Drawing.Size(15, 13);
+            this.lbSpeedNetwork.TabIndex = 5;
+            this.lbSpeedNetwork.Text = "%";
+            // 
             // lbCurrentTableName
             // 
             this.lbCurrentTableName.AutoSize = true;
@@ -407,10 +416,15 @@
             // TxtPath
             // 
             this.TxtPath.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingShedule, "FilePath", true));
+            this.TxtPath.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bindingShedule, "FilePath", true));
             this.TxtPath.Location = new System.Drawing.Point(92, 17);
             this.TxtPath.Name = "TxtPath";
             this.TxtPath.Size = new System.Drawing.Size(302, 20);
             this.TxtPath.TabIndex = 4;
+            // 
+            // bindingShedule
+            // 
+            this.bindingShedule.DataSource = typeof(Sigmasoft.Application.Domain.SheduleConfig);
             // 
             // IsCheckedSsh
             // 
@@ -507,6 +521,10 @@
             this.MTxtCPwd.PasswordChar = '*';
             this.MTxtCPwd.Size = new System.Drawing.Size(189, 20);
             this.MTxtCPwd.TabIndex = 4;
+            // 
+            // bindingDestination
+            // 
+            this.bindingDestination.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
             // 
             // label6
             // 
@@ -613,6 +631,10 @@
             this.MTxtRPassword.PasswordChar = '*';
             this.MTxtRPassword.Size = new System.Drawing.Size(189, 20);
             this.MTxtRPassword.TabIndex = 4;
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
             // 
             // label5
             // 
@@ -740,6 +762,10 @@
             this.TxtFPort.Size = new System.Drawing.Size(86, 20);
             this.TxtFPort.TabIndex = 3;
             // 
+            // bindingHost
+            // 
+            this.bindingHost.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
+            // 
             // TxtBoundPort
             // 
             this.TxtBoundPort.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingBounding, "Port", true));
@@ -747,6 +773,10 @@
             this.TxtBoundPort.Name = "TxtBoundPort";
             this.TxtBoundPort.Size = new System.Drawing.Size(86, 20);
             this.TxtBoundPort.TabIndex = 3;
+            // 
+            // bindingBounding
+            // 
+            this.bindingBounding.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
             // 
             // label21
             // 
@@ -823,6 +853,10 @@
             this.TxtPort.Name = "TxtPort";
             this.TxtPort.Size = new System.Drawing.Size(66, 20);
             this.TxtPort.TabIndex = 5;
+            // 
+            // bindingSsh
+            // 
+            this.bindingSsh.DataSource = typeof(Sigmasoft.Application.Domain.SSHConfig);
             // 
             // TxtPassword
             // 
@@ -1225,39 +1259,6 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
-            // lbSpeedNetwork
-            // 
-            this.lbSpeedNetwork.AutoSize = true;
-            this.lbSpeedNetwork.Location = new System.Drawing.Point(559, 99);
-            this.lbSpeedNetwork.Name = "lbSpeedNetwork";
-            this.lbSpeedNetwork.Size = new System.Drawing.Size(15, 13);
-            this.lbSpeedNetwork.TabIndex = 5;
-            this.lbSpeedNetwork.Text = "%";
-            // 
-            // bindingShedule
-            // 
-            this.bindingShedule.DataSource = typeof(Sigmasoft.Application.Domain.SheduleConfig);
-            // 
-            // bindingDestination
-            // 
-            this.bindingDestination.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
-            // 
-            // bindingHost
-            // 
-            this.bindingHost.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
-            // 
-            // bindingBounding
-            // 
-            this.bindingBounding.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
-            // 
-            // bindingSsh
-            // 
-            this.bindingSsh.DataSource = typeof(Sigmasoft.Application.Domain.SSHConfig);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1282,27 +1283,27 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGViewDbHistory)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGridViewLog)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).EndInit();
             this.ResumeLayout(false);
 
         }
