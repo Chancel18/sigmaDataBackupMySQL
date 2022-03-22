@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label34 = new System.Windows.Forms.Label();
@@ -56,11 +56,9 @@
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.BtnStop = new System.Windows.Forms.Button();
             this.TxtStatus = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TxtPath = new System.Windows.Forms.TextBox();
-            this.bindingShedule = new System.Windows.Forms.BindingSource(this.components);
             this.IsCheckedSsh = new System.Windows.Forms.CheckBox();
             this.BtnGetPath = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
@@ -70,7 +68,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.MTxtCPwd = new System.Windows.Forms.MaskedTextBox();
-            this.bindingDestination = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.TxtCUser = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -82,7 +79,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MTxtRPassword = new System.Windows.Forms.MaskedTextBox();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.TxtRUser = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -96,9 +92,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
             this.TxtFPort = new System.Windows.Forms.TextBox();
-            this.bindingHost = new System.Windows.Forms.BindingSource(this.components);
             this.TxtBoundPort = new System.Windows.Forms.TextBox();
-            this.bindingBounding = new System.Windows.Forms.BindingSource(this.components);
             this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.TxtFHost = new System.Windows.Forms.TextBox();
@@ -107,7 +101,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.TxtPort = new System.Windows.Forms.TextBox();
-            this.bindingSsh = new System.Windows.Forms.BindingSource(this.components);
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.TxtUserName = new System.Windows.Forms.TextBox();
@@ -143,28 +136,33 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.bindingShedule = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingDestination = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingHost = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingBounding = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSsh = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGViewDbHistory)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGridViewLog)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -200,7 +198,6 @@
             this.tabPage1.Controls.Add(this.lbSpeedNetwork);
             this.tabPage1.Controls.Add(this.lbCurrentTableName);
             this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.ImageIndex = 3;
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
@@ -294,12 +291,15 @@
             // 
             // lbSpeedNetwork
             // 
-            this.lbSpeedNetwork.AutoSize = true;
-            this.lbSpeedNetwork.Location = new System.Drawing.Point(559, 99);
+            this.lbSpeedNetwork.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lbSpeedNetwork.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSpeedNetwork.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbSpeedNetwork.Location = new System.Drawing.Point(251, 6);
             this.lbSpeedNetwork.Name = "lbSpeedNetwork";
-            this.lbSpeedNetwork.Size = new System.Drawing.Size(15, 13);
+            this.lbSpeedNetwork.Size = new System.Drawing.Size(370, 88);
             this.lbSpeedNetwork.TabIndex = 5;
             this.lbSpeedNetwork.Text = "%";
+            this.lbSpeedNetwork.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbCurrentTableName
             // 
@@ -373,14 +373,6 @@
             this.TxtStatus.Size = new System.Drawing.Size(214, 20);
             this.TxtStatus.TabIndex = 1;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(251, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(370, 89);
-            this.dataGridView1.TabIndex = 3;
-            // 
             // tabPage2
             // 
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -421,10 +413,6 @@
             this.TxtPath.Name = "TxtPath";
             this.TxtPath.Size = new System.Drawing.Size(302, 20);
             this.TxtPath.TabIndex = 4;
-            // 
-            // bindingShedule
-            // 
-            this.bindingShedule.DataSource = typeof(Sigmasoft.Application.Domain.SheduleConfig);
             // 
             // IsCheckedSsh
             // 
@@ -521,10 +509,6 @@
             this.MTxtCPwd.PasswordChar = '*';
             this.MTxtCPwd.Size = new System.Drawing.Size(189, 20);
             this.MTxtCPwd.TabIndex = 4;
-            // 
-            // bindingDestination
-            // 
-            this.bindingDestination.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
             // 
             // label6
             // 
@@ -631,10 +615,6 @@
             this.MTxtRPassword.PasswordChar = '*';
             this.MTxtRPassword.Size = new System.Drawing.Size(189, 20);
             this.MTxtRPassword.TabIndex = 4;
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
             // 
             // label5
             // 
@@ -762,10 +742,6 @@
             this.TxtFPort.Size = new System.Drawing.Size(86, 20);
             this.TxtFPort.TabIndex = 3;
             // 
-            // bindingHost
-            // 
-            this.bindingHost.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
-            // 
             // TxtBoundPort
             // 
             this.TxtBoundPort.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingBounding, "Port", true));
@@ -773,10 +749,6 @@
             this.TxtBoundPort.Name = "TxtBoundPort";
             this.TxtBoundPort.Size = new System.Drawing.Size(86, 20);
             this.TxtBoundPort.TabIndex = 3;
-            // 
-            // bindingBounding
-            // 
-            this.bindingBounding.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
             // 
             // label21
             // 
@@ -853,10 +825,6 @@
             this.TxtPort.Name = "TxtPort";
             this.TxtPort.Size = new System.Drawing.Size(66, 20);
             this.TxtPort.TabIndex = 5;
-            // 
-            // bindingSsh
-            // 
-            this.bindingSsh.DataSource = typeof(Sigmasoft.Application.Domain.SSHConfig);
             // 
             // TxtPassword
             // 
@@ -1062,8 +1030,8 @@
             this.DGViewDbHistory.AllowUserToAddRows = false;
             this.DGViewDbHistory.AllowUserToDeleteRows = false;
             this.DGViewDbHistory.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DGViewDbHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DGViewDbHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.DGViewDbHistory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.DGViewDbHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
@@ -1071,28 +1039,28 @@
             this.DGViewDbHistory.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DGViewDbHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.DGViewDbHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGViewDbHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGViewDbHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.DGViewDbHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGViewDbHistory.EnableHeadersVisualStyles = false;
             this.DGViewDbHistory.Location = new System.Drawing.Point(3, 3);
             this.DGViewDbHistory.Name = "DGViewDbHistory";
             this.DGViewDbHistory.ReadOnly = true;
             this.DGViewDbHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGViewDbHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGViewDbHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.DGViewDbHistory.RowHeadersVisible = false;
             this.DGViewDbHistory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.DGViewDbHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1118,21 +1086,21 @@
             this.DGridViewLog.AllowUserToAddRows = false;
             this.DGridViewLog.AllowUserToDeleteRows = false;
             this.DGridViewLog.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DGridViewLog.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DGridViewLog.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.DGridViewLog.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGridViewLog.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGridViewLog.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DGridViewLog.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.DGridViewLog.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGridViewLog.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGridViewLog.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.DGridViewLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGridViewLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGridViewLog.EnableHeadersVisualStyles = false;
@@ -1140,14 +1108,14 @@
             this.DGridViewLog.Name = "DGridViewLog";
             this.DGridViewLog.ReadOnly = true;
             this.DGridViewLog.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGridViewLog.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGridViewLog.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.DGridViewLog.RowHeadersVisible = false;
             this.DGridViewLog.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.DGridViewLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1259,6 +1227,30 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
+            // bindingShedule
+            // 
+            this.bindingShedule.DataSource = typeof(Sigmasoft.Application.Domain.SheduleConfig);
+            // 
+            // bindingDestination
+            // 
+            this.bindingDestination.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
+            // 
+            // bindingHost
+            // 
+            this.bindingHost.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
+            // 
+            // bindingBounding
+            // 
+            this.bindingBounding.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
+            // 
+            // bindingSsh
+            // 
+            this.bindingSsh.DataSource = typeof(Sigmasoft.Application.Domain.SSHConfig);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1279,31 +1271,30 @@
             this.tabPage1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGViewDbHistory)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGridViewLog)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1313,7 +1304,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtStatus;
         private System.Windows.Forms.Button BtnStop;

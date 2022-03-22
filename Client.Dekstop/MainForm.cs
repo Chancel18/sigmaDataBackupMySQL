@@ -8,6 +8,8 @@ using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using Microsoft.Win32.TaskScheduler;
@@ -15,6 +17,8 @@ using MySql.Data.MySqlClient;
 using Sigmasoft.Application.Domain;
 using Sigmasoft.Application.Helper;
 using Sigmasoft.Application.Services;
+using Action = System.Action;
+using Task = Microsoft.Win32.TaskScheduler.Task;
 
 namespace Client.Dekstop
 {
@@ -429,17 +433,36 @@ namespace Client.Dekstop
 
         private double Speed(string url)
         {
-            WebClient wbClient = new WebClient();
+            WebClient wc = new WebClient();
+
+            //DateTime Variable To Store Download Start Time.
             DateTime dt1 = DateTime.Now;
-            byte[] data = wbClient.DownloadData(url);
+
+            //Number Of Bytes Downloaded Are Stored In ‘data’
+            byte[] data = wc.DownloadData(url);
+
+            //DateTime Variable To Store Download End Time.
             DateTime dt2 = DateTime.Now;
 
-            return (data.Length * 8) / (dt1 - dt2).TotalSeconds;
+            //To Calculate Speed in Kb Divide Value Of data by 1024 And Then by End Time Subtract Start Time To Know Download Per Second.
+            return Math.Round((data.Length / 1024) * (dt2 - dt1).TotalSeconds, 2);
         }
 
+        private void UpdateSpeed(string msg)
+        {
+            Action action = () => lbSpeedNetwork.Text = msg;
+            this.Invoke(action);
+        }
+
+        void DoWork(Object obj)
+        {
+            UpdateSpeed($"{this.Speed("https://www.google.com/")} Kb/s");
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            ThreadPool.QueueUserWorkItem(new WaitCallback(DoWork));
+
             pbTable.Maximum = _totalTables;
             if (_currentTableIndex <= pbTable.Maximum)
                 pbTable.Value = _currentTableIndex;
@@ -454,12 +477,9 @@ namespace Client.Dekstop
 
             lbCurrentTableName.Text = "Table en cours de traitement = [" + _currentTableName.ToUpper()+"]";
             lbRowInCurTable.Text = pbRowInCurTable.Value + " sur " + pbRowInCurTable.Maximum;
-            //TxtStatus.Text = " Veuillez Patienter (" + pbRowInCurTable.Value + " / " + pbRowInCurTable.Maximum + ") ...";
+
             lbRowInAllTable.Text = pbRowInAllTable.Value + " sur " + pbRowInAllTable.Maximum;
             lbTableCount.Text = _currentTableIndex + " sur " + _totalTables;
-
-            //lbSpeedNetwork.Text = $"{(this.Speed("https://www.google.com/") /1024 * 1024)} Mb/s";
-
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
