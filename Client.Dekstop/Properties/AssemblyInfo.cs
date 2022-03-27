@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Client Backup service")]
-[assembly: AssemblyDescription("Ce logiciel à été conçu dans le but de synchroniser")]
+[assembly: AssemblyDescription("Ce logiciel à été conçu dans le but de récuperer des informations venant d'une base de donnée en ligne et de les restorer dans une base de donnée en local")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("sigmasoft")]
 [assembly: AssemblyProduct("Client Backup service")]
@@ -33,6 +33,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.1")]
-[assembly: AssemblyFileVersion("1.0.0.1")]
+[assembly: AssemblyVersion("1.0.0.2")]
+[assembly: AssemblyFileVersion("1.0.0.2")]
 [assembly: NeutralResourcesLanguage("")]

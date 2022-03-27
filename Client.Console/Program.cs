@@ -173,7 +173,7 @@ namespace Client.Console
                             "si le problème persiste vérifier votre connexion internet si il est active ou veuiller " +
                             "contacter votre  (FAI)");
 
-                        System.Console.ReadLine();
+                        Thread.Sleep(3000);
                     }
 
                 }
@@ -241,6 +241,8 @@ namespace Client.Console
                     else
                     {
                         System.Console.WriteLine("Une erreur est survenue au moment du traitement.");
+
+                        Thread.Sleep(3000);
 
                     }
                 }
