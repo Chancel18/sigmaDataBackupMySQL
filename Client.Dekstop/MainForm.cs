@@ -213,19 +213,35 @@ namespace Client.Dekstop
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            ReadConfig(this.source, this.bindingSource, configSrc);
-            ReadConfig(this.destination, this.bindingDestination, configDest);
-            ReadConfig(this.shdConfig, this.bindingShedule, configSheduler);
+            try
+            {
+                ReadConfig(this.source, this.bindingSource, configSrc);
+                ReadConfig(this.destination, this.bindingDestination, configDest);
+                ReadConfig(this.shdConfig, this.bindingShedule, configSheduler);
 
-            //SSH
-            ReadConfig(this.sshConfig, this.bindingSsh, configSSH);
-            ReadConfig(this.sshLocalServer, this.bindingHost, configLocalServer);
-            ReadConfig(this.sshLocalServerBounding, this.bindingBounding, configLocalServerBouding);
+                //SSH
+                ReadConfig(this.sshConfig, this.bindingSsh, configSSH);
+                ReadConfig(this.sshLocalServer, this.bindingHost, configLocalServer);
+                ReadConfig(this.sshLocalServerBounding, this.bindingBounding, configLocalServerBouding);
 
-            //Load log file
-            ReadFile(FILE_LOG);
+                //Load log file
+                ReadFile(FILE_LOG);
 
-            BtnStop.Enabled = false;
+                BtnStop.Enabled = false;
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Aucune configuration n'a été définie", "AVERTISSEMENT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                if(ex.InnerException != null)
+                {
+                    Log.WriteToFile(ex.Message);
+                }
+                else
+                {
+                    Log.WriteToFile(ex.Message);
+                }
+            }
         }
 
         protected override void OnLoad(EventArgs e)

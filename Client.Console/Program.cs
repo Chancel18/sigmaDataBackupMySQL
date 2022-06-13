@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -51,6 +52,8 @@ namespace Client.Console
         {
             try
             {
+                //System.Console.WriteLine(configSrc);
+
                 var src = (DbConfig)ReadConfig(source, configSrc);
                 var dest = (DbConfig)ReadConfig(destination, configDest);
                 var sheduler = (SheduleConfig)ReadConfig(shdConfig, configSheduler);
@@ -84,6 +87,16 @@ namespace Client.Console
                         while (backup == false)
                         {
                             backup = dbManager.Backup();
+
+                           if(backup == false)
+                           {
+                                sshManager.Disconnect();
+
+                                if (sshManager.IsConnected())
+                                {
+                                    System.Console.WriteLine("- Connexion au serveur distant, éffectuer avec succès");
+                                }
+                           }
 
                             if (backup == true)
                             {
@@ -150,7 +163,7 @@ namespace Client.Console
 
                                 System.Console.WriteLine("Opération términer avec succès !");
 
-                                System.Console.ReadLine();
+                                //System.Console.ReadLine();
                             }
                             else
                             {
@@ -249,7 +262,18 @@ namespace Client.Console
             }
             catch (Exception e)
             {
-                Log.WriteToFile(e.Message);
+                if(e.InnerException != null)
+                {
+                    Trace.WriteLine(e.InnerException.Message + " " + e.InnerException.StackTrace);
+                    System.Console.WriteLine(e.InnerException.Message+ " "+e.InnerException.StackTrace);
+                    Log.WriteToFile(e.InnerException.Message + " " + e.InnerException.StackTrace);
+                }
+                else
+                {
+                    Trace.WriteLine(e.Message + " " + e.StackTrace);
+                    System.Console.WriteLine(e.Message+" "+e.StackTrace);
+                    Log.WriteToFile(e.Message + " " + e.StackTrace);
+                }
             }
         }
     }

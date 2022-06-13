@@ -93,7 +93,7 @@ namespace Sigmasoft.Application.Services
             {
                 this.backupFile = $"{this.Shedule.FilePath}\\dump{DateTime.Now.Date.ToShortDateString().Replace('/', 'd')}_{DateTime.Now.ToShortTimeString().Replace(':', 'h')}m{DateTime.Now.Millisecond}.sql";
 
-                fs = new FileStream(this.backupFile, FileMode.Create);
+                fs = File.Create(backupFile);
 
                 this._conn = new MySqlConnection(connSrc.ConnectionString);
 
@@ -154,11 +154,31 @@ namespace Sigmasoft.Application.Services
                         using (DbBackup = new MySqlBackup(cmd))
                         {
                             cmd.Connection = conn;
+
                             conn.Open();
 
                             fs = new FileStream(this.backupFile, FileMode.Open);
 
                             DbBackup.ImportFromStream(fs);
+
+                            var path = Path.GetFullPath("Scripts\\script.txt");
+
+                            string commandText = "";
+
+                            foreach (var line in File.ReadLines(path))
+                            {
+                                commandText += line;
+                            }
+
+                            cmd.CommandText = commandText;
+
+                            cmd.ExecuteNonQuery();
+
+                            commandText = $"INSERT INTO `journal_restauration` (`libelle`) VALUES ('({DateTime.Now})');";
+
+                            cmd.CommandText = commandText;
+
+                            cmd.ExecuteNonQuery();
 
                             fs.Close();
 

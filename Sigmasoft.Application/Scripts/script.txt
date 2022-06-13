@@ -1,0 +1,1 @@
+﻿DROP TABLE IF EXISTS `journal_restauration`; CREATE TABLE `journal_restauration` (`Id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY, `libelle` VARCHAR(255) NOT NULL DEFAULT '(AUCUN)') COLLATE='utf8mb4_0900_ai_ci';

@@ -59,6 +59,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TxtPath = new System.Windows.Forms.TextBox();
+            this.bindingShedule = new System.Windows.Forms.BindingSource(this.components);
             this.IsCheckedSsh = new System.Windows.Forms.CheckBox();
             this.BtnGetPath = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
@@ -68,6 +69,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.MTxtCPwd = new System.Windows.Forms.MaskedTextBox();
+            this.bindingDestination = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.TxtCUser = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -79,6 +81,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MTxtRPassword = new System.Windows.Forms.MaskedTextBox();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.TxtRUser = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -92,7 +95,9 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
             this.TxtFPort = new System.Windows.Forms.TextBox();
+            this.bindingHost = new System.Windows.Forms.BindingSource(this.components);
             this.TxtBoundPort = new System.Windows.Forms.TextBox();
+            this.bindingBounding = new System.Windows.Forms.BindingSource(this.components);
             this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.TxtFHost = new System.Windows.Forms.TextBox();
@@ -101,6 +106,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.TxtPort = new System.Windows.Forms.TextBox();
+            this.bindingSsh = new System.Windows.Forms.BindingSource(this.components);
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.TxtUserName = new System.Windows.Forms.TextBox();
@@ -136,33 +142,27 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.bindingShedule = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingDestination = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingHost = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingBounding = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSsh = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGViewDbHistory)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGridViewLog)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -177,7 +177,7 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.ImageList = this.imageList1;
             this.tabControl1.Location = new System.Drawing.Point(7, 6);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(849, 359);
@@ -201,9 +201,9 @@
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.ImageIndex = 3;
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(841, 328);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Service Manager";
@@ -250,7 +250,7 @@
             // pbRowInAllTable
             // 
             this.pbRowInAllTable.Location = new System.Drawing.Point(13, 278);
-            this.pbRowInAllTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbRowInAllTable.Margin = new System.Windows.Forms.Padding(4);
             this.pbRowInAllTable.Name = "pbRowInAllTable";
             this.pbRowInAllTable.Size = new System.Drawing.Size(815, 12);
             this.pbRowInAllTable.TabIndex = 6;
@@ -258,7 +258,7 @@
             // pbRowInCurTable
             // 
             this.pbRowInCurTable.Location = new System.Drawing.Point(13, 209);
-            this.pbRowInCurTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbRowInCurTable.Margin = new System.Windows.Forms.Padding(4);
             this.pbRowInCurTable.Name = "pbRowInCurTable";
             this.pbRowInCurTable.Size = new System.Drawing.Size(815, 12);
             this.pbRowInCurTable.TabIndex = 6;
@@ -266,7 +266,7 @@
             // pbTable
             // 
             this.pbTable.Location = new System.Drawing.Point(13, 142);
-            this.pbTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbTable.Margin = new System.Windows.Forms.Padding(4);
             this.pbTable.Name = "pbTable";
             this.pbTable.Size = new System.Drawing.Size(815, 12);
             this.pbTable.TabIndex = 6;
@@ -333,7 +333,7 @@
             this.panel2.Controls.Add(this.BtnStop);
             this.panel2.Controls.Add(this.TxtStatus);
             this.panel2.Location = new System.Drawing.Point(8, 7);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(318, 108);
             this.panel2.TabIndex = 4;
@@ -354,7 +354,7 @@
             this.BtnStart.ImageIndex = 0;
             this.BtnStart.ImageList = this.imageList2;
             this.BtnStart.Location = new System.Drawing.Point(16, 62);
-            this.BtnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnStart.Margin = new System.Windows.Forms.Padding(4);
             this.BtnStart.Name = "BtnStart";
             this.BtnStart.Size = new System.Drawing.Size(139, 34);
             this.BtnStart.TabIndex = 0;
@@ -375,7 +375,7 @@
             this.BtnStop.ImageIndex = 1;
             this.BtnStop.ImageList = this.imageList2;
             this.BtnStop.Location = new System.Drawing.Point(163, 62);
-            this.BtnStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnStop.Margin = new System.Windows.Forms.Padding(4);
             this.BtnStop.Name = "BtnStop";
             this.BtnStop.Size = new System.Drawing.Size(139, 34);
             this.BtnStop.TabIndex = 0;
@@ -386,7 +386,7 @@
             // TxtStatus
             // 
             this.TxtStatus.Location = new System.Drawing.Point(16, 30);
-            this.TxtStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtStatus.Margin = new System.Windows.Forms.Padding(4);
             this.TxtStatus.Name = "TxtStatus";
             this.TxtStatus.ReadOnly = true;
             this.TxtStatus.Size = new System.Drawing.Size(284, 22);
@@ -400,9 +400,9 @@
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.ImageIndex = 2;
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(841, 328);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Configuration";
@@ -419,9 +419,9 @@
             this.groupBox3.Controls.Add(this.DTPicker);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Location = new System.Drawing.Point(9, 198);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(819, 113);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
@@ -432,10 +432,14 @@
             this.TxtPath.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingShedule, "FilePath", true));
             this.TxtPath.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bindingShedule, "FilePath", true));
             this.TxtPath.Location = new System.Drawing.Point(123, 21);
-            this.TxtPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtPath.Margin = new System.Windows.Forms.Padding(4);
             this.TxtPath.Name = "TxtPath";
             this.TxtPath.Size = new System.Drawing.Size(401, 22);
             this.TxtPath.TabIndex = 4;
+            // 
+            // bindingShedule
+            // 
+            this.bindingShedule.DataSource = typeof(Sigmasoft.Application.Domain.SheduleConfig);
             // 
             // IsCheckedSsh
             // 
@@ -443,7 +447,7 @@
             this.IsCheckedSsh.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingShedule, "IsEnableSSH", true));
             this.IsCheckedSsh.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bindingShedule, "IsEnableSSH", true));
             this.IsCheckedSsh.Location = new System.Drawing.Point(581, 23);
-            this.IsCheckedSsh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.IsCheckedSsh.Margin = new System.Windows.Forms.Padding(4);
             this.IsCheckedSsh.Name = "IsCheckedSsh";
             this.IsCheckedSsh.Size = new System.Drawing.Size(188, 21);
             this.IsCheckedSsh.TabIndex = 3;
@@ -454,7 +458,7 @@
             // 
             this.BtnGetPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnGetPath.Location = new System.Drawing.Point(531, 21);
-            this.BtnGetPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnGetPath.Margin = new System.Windows.Forms.Padding(4);
             this.BtnGetPath.Name = "BtnGetPath";
             this.BtnGetPath.Size = new System.Drawing.Size(40, 25);
             this.BtnGetPath.TabIndex = 2;
@@ -475,7 +479,7 @@
             // TxtTimeSpan
             // 
             this.TxtTimeSpan.Location = new System.Drawing.Point(415, 52);
-            this.TxtTimeSpan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtTimeSpan.Margin = new System.Windows.Forms.Padding(4);
             this.TxtTimeSpan.Name = "TxtTimeSpan";
             this.TxtTimeSpan.ReadOnly = true;
             this.TxtTimeSpan.Size = new System.Drawing.Size(155, 22);
@@ -496,7 +500,7 @@
             this.DTPicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingShedule, "IntervaleTime", true));
             this.DTPicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.DTPicker.Location = new System.Drawing.Point(123, 52);
-            this.DTPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DTPicker.Margin = new System.Windows.Forms.Padding(4);
             this.DTPicker.Name = "DTPicker";
             this.DTPicker.Size = new System.Drawing.Size(117, 22);
             this.DTPicker.TabIndex = 0;
@@ -524,9 +528,9 @@
             this.groupBox2.Controls.Add(this.TxtCSource);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Location = new System.Drawing.Point(416, 9);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(412, 186);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
@@ -537,11 +541,15 @@
             this.MTxtCPwd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingDestination, "Password", true));
             this.MTxtCPwd.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bindingDestination, "Password", true));
             this.MTxtCPwd.Location = new System.Drawing.Point(133, 149);
-            this.MTxtCPwd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MTxtCPwd.Margin = new System.Windows.Forms.Padding(4);
             this.MTxtCPwd.Name = "MTxtCPwd";
             this.MTxtCPwd.PasswordChar = '*';
             this.MTxtCPwd.Size = new System.Drawing.Size(251, 22);
             this.MTxtCPwd.TabIndex = 4;
+            // 
+            // bindingDestination
+            // 
+            this.bindingDestination.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
             // 
             // label6
             // 
@@ -557,7 +565,7 @@
             // 
             this.TxtCUser.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingDestination, "User", true));
             this.TxtCUser.Location = new System.Drawing.Point(133, 119);
-            this.TxtCUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtCUser.Margin = new System.Windows.Forms.Padding(4);
             this.TxtCUser.Name = "TxtCUser";
             this.TxtCUser.Size = new System.Drawing.Size(251, 22);
             this.TxtCUser.TabIndex = 3;
@@ -576,7 +584,7 @@
             // 
             this.TxtCDatabase.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingDestination, "Database", true));
             this.TxtCDatabase.Location = new System.Drawing.Point(133, 90);
-            this.TxtCDatabase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtCDatabase.Margin = new System.Windows.Forms.Padding(4);
             this.TxtCDatabase.Name = "TxtCDatabase";
             this.TxtCDatabase.Size = new System.Drawing.Size(251, 22);
             this.TxtCDatabase.TabIndex = 2;
@@ -595,7 +603,7 @@
             // 
             this.TxtCPort.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingDestination, "Port", true));
             this.TxtCPort.Location = new System.Drawing.Point(133, 60);
-            this.TxtCPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtCPort.Margin = new System.Windows.Forms.Padding(4);
             this.TxtCPort.Name = "TxtCPort";
             this.TxtCPort.Size = new System.Drawing.Size(251, 22);
             this.TxtCPort.TabIndex = 1;
@@ -614,7 +622,7 @@
             // 
             this.TxtCSource.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingDestination, "Source", true));
             this.TxtCSource.Location = new System.Drawing.Point(133, 31);
-            this.TxtCSource.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtCSource.Margin = new System.Windows.Forms.Padding(4);
             this.TxtCSource.Name = "TxtCSource";
             this.TxtCSource.Size = new System.Drawing.Size(251, 22);
             this.TxtCSource.TabIndex = 0;
@@ -642,9 +650,9 @@
             this.groupBox1.Controls.Add(this.TxtRSource);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(9, 9);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(399, 186);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -655,11 +663,15 @@
             this.MTxtRPassword.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "Password", true));
             this.MTxtRPassword.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bindingSource, "Password", true));
             this.MTxtRPassword.Location = new System.Drawing.Point(133, 149);
-            this.MTxtRPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MTxtRPassword.Margin = new System.Windows.Forms.Padding(4);
             this.MTxtRPassword.Name = "MTxtRPassword";
             this.MTxtRPassword.PasswordChar = '*';
             this.MTxtRPassword.Size = new System.Drawing.Size(251, 22);
             this.MTxtRPassword.TabIndex = 4;
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
             // 
             // label5
             // 
@@ -675,7 +687,7 @@
             // 
             this.TxtRUser.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "User", true));
             this.TxtRUser.Location = new System.Drawing.Point(133, 119);
-            this.TxtRUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtRUser.Margin = new System.Windows.Forms.Padding(4);
             this.TxtRUser.Name = "TxtRUser";
             this.TxtRUser.Size = new System.Drawing.Size(251, 22);
             this.TxtRUser.TabIndex = 3;
@@ -694,7 +706,7 @@
             // 
             this.TxtRDatabase.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "Database", true));
             this.TxtRDatabase.Location = new System.Drawing.Point(133, 90);
-            this.TxtRDatabase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtRDatabase.Margin = new System.Windows.Forms.Padding(4);
             this.TxtRDatabase.Name = "TxtRDatabase";
             this.TxtRDatabase.Size = new System.Drawing.Size(251, 22);
             this.TxtRDatabase.TabIndex = 2;
@@ -713,7 +725,7 @@
             // 
             this.TxtRPort.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "Port", true));
             this.TxtRPort.Location = new System.Drawing.Point(133, 60);
-            this.TxtRPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtRPort.Margin = new System.Windows.Forms.Padding(4);
             this.TxtRPort.Name = "TxtRPort";
             this.TxtRPort.Size = new System.Drawing.Size(251, 22);
             this.TxtRPort.TabIndex = 1;
@@ -732,7 +744,7 @@
             // 
             this.TxtRSource.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "Source", true));
             this.TxtRSource.Location = new System.Drawing.Point(133, 31);
-            this.TxtRSource.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtRSource.Margin = new System.Windows.Forms.Padding(4);
             this.TxtRSource.Name = "TxtRSource";
             this.TxtRSource.Size = new System.Drawing.Size(251, 22);
             this.TxtRSource.TabIndex = 0;
@@ -754,9 +766,9 @@
             this.tabPage3.Controls.Add(this.groupBox4);
             this.tabPage3.ImageIndex = 1;
             this.tabPage3.Location = new System.Drawing.Point(4, 27);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(841, 328);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Tunnel SSH";
@@ -774,9 +786,9 @@
             this.groupBox5.Controls.Add(this.TxtBoundHote);
             this.groupBox5.Controls.Add(this.label18);
             this.groupBox5.Location = new System.Drawing.Point(9, 129);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox5.Size = new System.Drawing.Size(821, 94);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
@@ -796,19 +808,27 @@
             // 
             this.TxtFPort.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingHost, "Port", true));
             this.TxtFPort.Location = new System.Drawing.Point(439, 48);
-            this.TxtFPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtFPort.Margin = new System.Windows.Forms.Padding(4);
             this.TxtFPort.Name = "TxtFPort";
             this.TxtFPort.Size = new System.Drawing.Size(113, 22);
             this.TxtFPort.TabIndex = 3;
+            // 
+            // bindingHost
+            // 
+            this.bindingHost.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
             // 
             // TxtBoundPort
             // 
             this.TxtBoundPort.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingBounding, "Port", true));
             this.TxtBoundPort.Location = new System.Drawing.Point(79, 52);
-            this.TxtBoundPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtBoundPort.Margin = new System.Windows.Forms.Padding(4);
             this.TxtBoundPort.Name = "TxtBoundPort";
             this.TxtBoundPort.Size = new System.Drawing.Size(113, 22);
             this.TxtBoundPort.TabIndex = 3;
+            // 
+            // bindingBounding
+            // 
+            this.bindingBounding.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
             // 
             // label21
             // 
@@ -834,7 +854,7 @@
             // 
             this.TxtFHost.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingHost, "Hote", true));
             this.TxtFHost.Location = new System.Drawing.Point(439, 20);
-            this.TxtFHost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtFHost.Margin = new System.Windows.Forms.Padding(4);
             this.TxtFHost.Name = "TxtFHost";
             this.TxtFHost.Size = new System.Drawing.Size(251, 22);
             this.TxtFHost.TabIndex = 3;
@@ -853,7 +873,7 @@
             // 
             this.TxtBoundHote.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingBounding, "Hote", true));
             this.TxtBoundHote.Location = new System.Drawing.Point(79, 23);
-            this.TxtBoundHote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtBoundHote.Margin = new System.Windows.Forms.Padding(4);
             this.TxtBoundHote.Name = "TxtBoundHote";
             this.TxtBoundHote.Size = new System.Drawing.Size(251, 22);
             this.TxtBoundHote.TabIndex = 3;
@@ -878,9 +898,9 @@
             this.groupBox4.Controls.Add(this.TxtHost);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Location = new System.Drawing.Point(9, 6);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(821, 119);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
@@ -890,16 +910,20 @@
             // 
             this.TxtPort.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSsh, "Port", true));
             this.TxtPort.Location = new System.Drawing.Point(411, 23);
-            this.TxtPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtPort.Margin = new System.Windows.Forms.Padding(4);
             this.TxtPort.Name = "TxtPort";
             this.TxtPort.Size = new System.Drawing.Size(87, 22);
             this.TxtPort.TabIndex = 5;
+            // 
+            // bindingSsh
+            // 
+            this.bindingSsh.DataSource = typeof(Sigmasoft.Application.Domain.SSHConfig);
             // 
             // TxtPassword
             // 
             this.TxtPassword.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSsh, "Pwd", true));
             this.TxtPassword.Location = new System.Drawing.Point(153, 82);
-            this.TxtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.PasswordChar = '*';
             this.TxtPassword.Size = new System.Drawing.Size(251, 22);
@@ -919,7 +943,7 @@
             // 
             this.TxtUserName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSsh, "UserName", true));
             this.TxtUserName.Location = new System.Drawing.Point(153, 53);
-            this.TxtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtUserName.Margin = new System.Windows.Forms.Padding(4);
             this.TxtUserName.Name = "TxtUserName";
             this.TxtUserName.Size = new System.Drawing.Size(251, 22);
             this.TxtUserName.TabIndex = 5;
@@ -938,7 +962,7 @@
             // 
             this.TxtHost.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSsh, "Host", true));
             this.TxtHost.Location = new System.Drawing.Point(153, 23);
-            this.TxtHost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtHost.Margin = new System.Windows.Forms.Padding(4);
             this.TxtHost.Name = "TxtHost";
             this.TxtHost.Size = new System.Drawing.Size(251, 22);
             this.TxtHost.TabIndex = 3;
@@ -974,9 +998,9 @@
             this.tabPage5.Controls.Add(this.DGViewDbHistory);
             this.tabPage5.ImageIndex = 6;
             this.tabPage5.Location = new System.Drawing.Point(4, 27);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage5.Size = new System.Drawing.Size(841, 328);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Historique";
@@ -984,7 +1008,7 @@
             // TxtBoxSize
             // 
             this.TxtBoxSize.Location = new System.Drawing.Point(593, 191);
-            this.TxtBoxSize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtBoxSize.Margin = new System.Windows.Forms.Padding(4);
             this.TxtBoxSize.Name = "TxtBoxSize";
             this.TxtBoxSize.ReadOnly = true;
             this.TxtBoxSize.Size = new System.Drawing.Size(236, 22);
@@ -993,7 +1017,7 @@
             // TxtBoxLastAccess
             // 
             this.TxtBoxLastAccess.Location = new System.Drawing.Point(593, 164);
-            this.TxtBoxLastAccess.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtBoxLastAccess.Margin = new System.Windows.Forms.Padding(4);
             this.TxtBoxLastAccess.Name = "TxtBoxLastAccess";
             this.TxtBoxLastAccess.ReadOnly = true;
             this.TxtBoxLastAccess.Size = new System.Drawing.Size(236, 22);
@@ -1002,7 +1026,7 @@
             // TxtBoxDateWrite
             // 
             this.TxtBoxDateWrite.Location = new System.Drawing.Point(593, 137);
-            this.TxtBoxDateWrite.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtBoxDateWrite.Margin = new System.Windows.Forms.Padding(4);
             this.TxtBoxDateWrite.Name = "TxtBoxDateWrite";
             this.TxtBoxDateWrite.ReadOnly = true;
             this.TxtBoxDateWrite.Size = new System.Drawing.Size(236, 22);
@@ -1011,7 +1035,7 @@
             // TxtBoxDateCreate
             // 
             this.TxtBoxDateCreate.Location = new System.Drawing.Point(593, 110);
-            this.TxtBoxDateCreate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtBoxDateCreate.Margin = new System.Windows.Forms.Padding(4);
             this.TxtBoxDateCreate.Name = "TxtBoxDateCreate";
             this.TxtBoxDateCreate.ReadOnly = true;
             this.TxtBoxDateCreate.Size = new System.Drawing.Size(236, 22);
@@ -1020,7 +1044,7 @@
             // TxtBoxExt
             // 
             this.TxtBoxExt.Location = new System.Drawing.Point(593, 82);
-            this.TxtBoxExt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtBoxExt.Margin = new System.Windows.Forms.Padding(4);
             this.TxtBoxExt.Name = "TxtBoxExt";
             this.TxtBoxExt.ReadOnly = true;
             this.TxtBoxExt.Size = new System.Drawing.Size(236, 22);
@@ -1039,7 +1063,7 @@
             // TxtBoxName
             // 
             this.TxtBoxName.Location = new System.Drawing.Point(593, 55);
-            this.TxtBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.TxtBoxName.Name = "TxtBoxName";
             this.TxtBoxName.ReadOnly = true;
             this.TxtBoxName.Size = new System.Drawing.Size(236, 22);
@@ -1140,7 +1164,7 @@
             this.DGViewDbHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGViewDbHistory.EnableHeadersVisualStyles = false;
             this.DGViewDbHistory.Location = new System.Drawing.Point(4, 4);
-            this.DGViewDbHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DGViewDbHistory.Margin = new System.Windows.Forms.Padding(4);
             this.DGViewDbHistory.Name = "DGViewDbHistory";
             this.DGViewDbHistory.ReadOnly = true;
             this.DGViewDbHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -1165,9 +1189,9 @@
             this.tabPage4.Controls.Add(this.DGridViewLog);
             this.tabPage4.ImageIndex = 0;
             this.tabPage4.Location = new System.Drawing.Point(4, 27);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage4.Size = new System.Drawing.Size(841, 328);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Journal";
@@ -1197,7 +1221,7 @@
             this.DGridViewLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGridViewLog.EnableHeadersVisualStyles = false;
             this.DGridViewLog.Location = new System.Drawing.Point(4, 4);
-            this.DGridViewLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DGridViewLog.Margin = new System.Windows.Forms.Padding(4);
             this.DGridViewLog.Name = "DGridViewLog";
             this.DGridViewLog.ReadOnly = true;
             this.DGridViewLog.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -1236,7 +1260,7 @@
             this.BtnCancel.ImageIndex = 3;
             this.BtnCancel.ImageList = this.imageList3;
             this.BtnCancel.Location = new System.Drawing.Point(712, 372);
-            this.BtnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(139, 34);
             this.BtnCancel.TabIndex = 2;
@@ -1260,7 +1284,7 @@
             this.BtnValid.ImageIndex = 1;
             this.BtnValid.ImageList = this.imageList3;
             this.BtnValid.Location = new System.Drawing.Point(145, 372);
-            this.BtnValid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnValid.Margin = new System.Windows.Forms.Padding(4);
             this.BtnValid.Name = "BtnValid";
             this.BtnValid.Size = new System.Drawing.Size(139, 34);
             this.BtnValid.TabIndex = 1;
@@ -1275,7 +1299,7 @@
             this.BtnNew.ImageIndex = 0;
             this.BtnNew.ImageList = this.imageList3;
             this.BtnNew.Location = new System.Drawing.Point(7, 372);
-            this.BtnNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnNew.Margin = new System.Windows.Forms.Padding(4);
             this.BtnNew.Name = "BtnNew";
             this.BtnNew.Size = new System.Drawing.Size(139, 34);
             this.BtnNew.TabIndex = 0;
@@ -1295,7 +1319,7 @@
             this.panel1.Controls.Add(this.BtnEdit);
             this.panel1.Controls.Add(this.BtnValid);
             this.panel1.Location = new System.Drawing.Point(7, 7);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(866, 414);
             this.panel1.TabIndex = 1;
@@ -1307,7 +1331,7 @@
             this.BtnEdit.ImageIndex = 2;
             this.BtnEdit.ImageList = this.imageList3;
             this.BtnEdit.Location = new System.Drawing.Point(284, 372);
-            this.BtnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.BtnEdit.Name = "BtnEdit";
             this.BtnEdit.Size = new System.Drawing.Size(139, 34);
             this.BtnEdit.TabIndex = 1;
@@ -1325,30 +1349,6 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
-            // bindingShedule
-            // 
-            this.bindingShedule.DataSource = typeof(Sigmasoft.Application.Domain.SheduleConfig);
-            // 
-            // bindingDestination
-            // 
-            this.bindingDestination.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(Sigmasoft.Application.Domain.DbConfig);
-            // 
-            // bindingHost
-            // 
-            this.bindingHost.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
-            // 
-            // bindingBounding
-            // 
-            this.bindingBounding.DataSource = typeof(Sigmasoft.Application.Domain.SSHLocalServer);
-            // 
-            // bindingSsh
-            // 
-            this.bindingSsh.DataSource = typeof(Sigmasoft.Application.Domain.SSHConfig);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1358,7 +1358,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
@@ -1373,27 +1373,27 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGViewDbHistory)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGridViewLog)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingShedule)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingDestination)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingHost)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingBounding)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSsh)).EndInit();
             this.ResumeLayout(false);
 
         }

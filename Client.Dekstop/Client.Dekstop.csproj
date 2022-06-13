@@ -12,7 +12,7 @@
     <ProjectGuid>{2EFA47DF-3439-4745-8FF6-408F825F293B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Client.Dekstop</RootNamespace>
-    <AssemblyName>Client.Dekstop</AssemblyName>
+    <AssemblyName>setup</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
