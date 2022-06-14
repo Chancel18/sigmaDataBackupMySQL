@@ -87,6 +87,80 @@ namespace Sigmasoft.Application.Services
             }
         }
 
+        private void CreateOrUpdate(MySqlConnection connection)
+        {
+            connection.Open();
+
+            string commandText = "";
+            var command = new MySqlCommand();
+            command.Connection = connection;
+
+            commandText = "SHOW CREATE TABLE `journal_restauration`;";
+            command.CommandText = commandText;
+            var hasRow = command.ExecuteReader();
+            
+
+            if(hasRow.HasRows)
+            {
+                connection.Close();
+
+                connection.Open();
+                commandText = "SELECT COUNT(*) FROM `journal_restauration`";
+                command.Connection = connection;
+                command.CommandText = commandText;
+
+                var result = command.ExecuteReader();
+                
+                
+                if (result.HasRows == false)
+                {
+                    connection.Close();
+
+                    connection.Open();
+                    commandText = $"INSERT INTO `journal_restauration` (`libelle`) VALUES ('({DateTime.Now})');";
+                    command.Connection = connection;
+                    command.CommandText = commandText;
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+                else
+                {
+                    connection.Close();
+
+                    connection.Open();
+                    commandText = $"UPDATE `journal_restauration` SET `libelle`='{DateTime.Now}' WHERE  `Id`=1";
+                    command.Connection = connection;
+                    command.CommandText = commandText;
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            else
+            {
+                throw new Exception();
+
+                string path = Path.GetFullPath("Scripts\\script.txt");
+
+                foreach (var line in File.ReadLines(path))
+                {
+                    commandText += line;
+                }
+
+                connection.Open();
+                command.CommandText = commandText;
+                command.Connection = connection;
+                command.ExecuteNonQuery();
+                connection.Close();
+
+                connection.Open();
+                commandText = $"INSERT INTO `journal_restauration` (`libelle`) VALUES ('({DateTime.Now})');";
+                command.Connection = connection;
+                command.CommandText = commandText;
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
         public bool Backup()
         {
             try
@@ -98,6 +172,8 @@ namespace Sigmasoft.Application.Services
                 this._conn = new MySqlConnection(connSrc.ConnectionString);
 
                 var cmd = new MySqlCommand();
+
+                this.CreateOrUpdate(_conn);
 
                 this._conn.Open();
 
@@ -161,22 +237,22 @@ namespace Sigmasoft.Application.Services
 
                             DbBackup.ImportFromStream(fs);
 
-                            var path = Path.GetFullPath("Scripts\\script.txt");
+                            //var path = Path.GetFullPath("Scripts\\script.txt");
 
-                            string commandText = "";
+                            //string commandText = "";
 
-                            foreach (var line in File.ReadLines(path))
-                            {
-                                commandText += line;
-                            }
+                            //foreach (var line in File.ReadLines(path))
+                            //{
+                            //    commandText += line;
+                            //}
 
-                            cmd.CommandText = commandText;
+                            //cmd.CommandText = commandText;
 
-                            cmd.ExecuteNonQuery();
+                            //cmd.ExecuteNonQuery();
 
-                            commandText = $"INSERT INTO `journal_restauration` (`libelle`) VALUES ('({DateTime.Now})');";
+                            //commandText = $"INSERT INTO `journal_restauration` (`libelle`) VALUES ('({DateTime.Now})');";
 
-                            cmd.CommandText = commandText;
+                            //cmd.CommandText = commandText;
 
                             cmd.ExecuteNonQuery();
 
