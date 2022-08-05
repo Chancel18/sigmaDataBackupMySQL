@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using Sigmasoft.Application.Domain;
 using Sigmasoft.Application.Helper;
 
@@ -236,23 +236,6 @@ namespace Sigmasoft.Application.Services
                             fs = new FileStream(this.backupFile, FileMode.Open);
 
                             DbBackup.ImportFromStream(fs);
-
-                            //var path = Path.GetFullPath("Scripts\\script.txt");
-
-                            //string commandText = "";
-
-                            //foreach (var line in File.ReadLines(path))
-                            //{
-                            //    commandText += line;
-                            //}
-
-                            //cmd.CommandText = commandText;
-
-                            //cmd.ExecuteNonQuery();
-
-                            //commandText = $"INSERT INTO `journal_restauration` (`libelle`) VALUES ('({DateTime.Now})');";
-
-                            //cmd.CommandText = commandText;
 
                             cmd.ExecuteNonQuery();
 

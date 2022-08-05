@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using Microsoft.Win32.TaskScheduler;
-using MySql.Data.MySqlClient;
 using Sigmasoft.Application.Domain;
 using Sigmasoft.Application.Helper;
 using Sigmasoft.Application.Services;
