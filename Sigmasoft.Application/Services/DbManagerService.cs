@@ -16,6 +16,10 @@ namespace Sigmasoft.Application.Services
         //Provider connection
         private MySqlConnectionStringBuilder connSrc;
         private MySqlConnectionStringBuilder connDest;
+
+        private string connectionDestString;
+        private string connectionCreateDbString;
+
         //Check DB
         private MySqlConnectionStringBuilder connCreateDb;
         //Connection DB
@@ -63,9 +67,20 @@ namespace Sigmasoft.Application.Services
                 UserID = this.Destination.User,
                 Password = this.Destination.Password,
                 Database = this.Destination.Database,
-                ConnectionTimeout = 999999,
-                ConvertZeroDateTime = true
+                //ConnectionTimeout = 999999,
+                //ConvertZeroDateTime = true
             };
+
+            this.connectionDestString = $"Server={this.Destination.Source};" +
+                $"Port={this.Destination.Port};" +
+                $"User ID={Destination.User};" +
+                $"Password={this.Destination.Password};" +
+                $"Database={this.Destination.Database}";
+
+            this.connectionCreateDbString = $"Server={this.Destination.Source};" +
+                $"Port={this.Destination.Port};" +
+                $"User ID={Destination.User};" +
+                $"Password={this.Destination.Password}";
 
             connCreateDb = new MySqlConnectionStringBuilder
             {
@@ -87,6 +102,12 @@ namespace Sigmasoft.Application.Services
             }
         }
 
+         /// <summary>
+         /// Cette méthode permet de vérifié si la table journal_restauration existe,
+         /// si cette table n'éxiste pas alors elle la crée puis fait une insertion dessus
+         /// qui indique la date de la dérnière réstauration
+         /// </summary>
+         /// <param name="connection"></param>
         private void CreateOrUpdate(MySqlConnection connection)
         {
             connection.Open();
@@ -97,10 +118,10 @@ namespace Sigmasoft.Application.Services
 
             commandText = "SHOW CREATE TABLE `journal_restauration`;";
             command.CommandText = commandText;
-            var hasRow = command.ExecuteReader();
+            var read = command.ExecuteReader();
+            bool hasRow = read.HasRows;
             
-
-            if(hasRow.HasRows)
+            if(hasRow == true)
             {
                 connection.Close();
 
@@ -109,10 +130,11 @@ namespace Sigmasoft.Application.Services
                 command.Connection = connection;
                 command.CommandText = commandText;
 
-                var result = command.ExecuteReader();
+                read = command.ExecuteReader();
+
+                var result = read.HasRows;
                 
-                
-                if (result.HasRows == false)
+                if (result == false)
                 {
                     connection.Close();
 
@@ -128,7 +150,23 @@ namespace Sigmasoft.Application.Services
                     connection.Close();
 
                     connection.Open();
-                    commandText = $"UPDATE `journal_restauration` SET `libelle`='{DateTime.Now}' WHERE  `Id`=1";
+
+                    commandText = "SELECT MAX(j0.Id) Id FROM `journal_restauration` j0";
+                    command.Connection = connection;
+                    command.CommandText = commandText;
+                    var reader = command.ExecuteReader();
+
+                    int journal_id = 0;
+
+                    while (reader.Read())
+                    {
+                        journal_id = reader.GetInt32(0);
+                    }
+
+                    connection.Close();
+
+                    connection.Open();
+                    commandText = $"UPDATE `journal_restauration` SET `libelle`='{DateTime.Now}' WHERE  `Id`={journal_id}";
                     command.Connection = connection;
                     command.CommandText = commandText;
                     command.ExecuteNonQuery();
@@ -137,8 +175,6 @@ namespace Sigmasoft.Application.Services
             }
             else
             {
-                throw new Exception();
-
                 string path = Path.GetFullPath("Scripts\\script.txt");
 
                 foreach (var line in File.ReadLines(path))
@@ -161,6 +197,10 @@ namespace Sigmasoft.Application.Services
             }
         }
 
+        /// <summary>
+        /// Cette méthode persmet de faire un backup sur la BD source choisi par l'utilisateur
+        /// </summary>
+        /// <returns>bool</returns>
         public bool Backup()
         {
             try
@@ -205,6 +245,11 @@ namespace Sigmasoft.Application.Services
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="time"></param>
+        /// <param name="conn"></param>
         private void SetTimeOut(int time, MySqlConnection conn)
         {
              using (var cmd = new MySqlCommand())
@@ -218,12 +263,15 @@ namespace Sigmasoft.Application.Services
              }
         }
 
+        /// <summary>
+        /// Cette méthode permet de faire une réstauration de la BD de déstination choisi par l'utilisateur
+        /// </summary>
         public void Restore()
         {
 
             try
             {
-                using (var conn = new MySqlConnection(connDest.ConnectionString))
+                using (var conn = new MySqlConnection(connectionDestString))
                 {
                     using (MySqlCommand cmd = new MySqlCommand())
                     {
@@ -255,13 +303,18 @@ namespace Sigmasoft.Application.Services
             }
         }
 
+        /// <summary>
+        /// cette méthode permet de créer une pase de donnée
+        /// </summary>
+        /// <param name="databaseName"></param>
+        /// <returns>bool</returns>
         public bool CreateDatabase(string databaseName)
         {
             try
             {
                 var cmdText = $"CREATE DATABASE `{databaseName}`";
 
-                using (var sqlConnection = new MySqlConnection(connCreateDb.ConnectionString))
+                using (var sqlConnection = new MySqlConnection(connectionCreateDbString))
                 {
                     using (var sqlCmd = new MySqlCommand(cmdText, sqlConnection))
                     {
@@ -281,13 +334,18 @@ namespace Sigmasoft.Application.Services
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="databaseName"></param>
+        /// <returns>bool</returns>
         public bool RemoveDatabase(string databaseName)
         {
             try
             {
                 var cmdText = $"DROP DATABASE `{databaseName}`";
 
-                using (var sqlConnection = new  MySqlConnection(connDest.ConnectionString))
+                using (var sqlConnection = new  MySqlConnection(connectionCreateDbString))
                 {
                     using (var sqlCmd = new MySqlCommand(cmdText, sqlConnection))
                     {
@@ -317,7 +375,7 @@ namespace Sigmasoft.Application.Services
             {
                 var cmdText = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = @database";
 
-                using (var sqlConnection = new MySqlConnection(connCreateDb.ConnectionString))
+                using (var sqlConnection = new MySqlConnection(connectionCreateDbString))
                 {
                     using (var sqlCmd = new MySqlCommand(cmdText, sqlConnection))
                     {

@@ -12,12 +12,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using Microsoft.Win32.TaskScheduler;
+using MySqlConnector;
 using Sigmasoft.Application.Domain;
 using Sigmasoft.Application.Helper;
 using Sigmasoft.Application.Services;
 using Action = System.Action;
-using Task = Microsoft.Win32.TaskScheduler.Task;
 
 namespace Client.Dekstop
 {
@@ -506,7 +505,12 @@ namespace Client.Dekstop
                 TxtStatus.Text = "Opération Terminer ...".ToUpper();
                 MessageBox.Show("Opération términer avec succès !", "Information", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+
                 this.dbManager.CloseConnection();
+
+                backgroundWorker1.CancelAsync();
+
+                backgroundWorker1.Dispose();
             }
             else
             {
@@ -517,7 +521,14 @@ namespace Client.Dekstop
                 TxtStatus.BackColor = Color.Red;
                 MessageBox.Show("Une erreur est survenue au moment du traitement.", "ERREUR", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+
+                timer1.Stop();
+
                 this.dbManager.CloseConnection();
+
+                backgroundWorker1.CancelAsync();
+
+                backgroundWorker1.Dispose();
             }
         }
 
